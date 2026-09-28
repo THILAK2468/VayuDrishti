@@ -1,0 +1,62 @@
+{
+  "project_name": "VayuDrishti",
+  "version": "1.0.0",
+  "paths": {
+    "ibtracs_raw": "data/IBTrACS/raw/ibtracs.NI.list.v04r01.csv",
+    "ibtracs_cleaned": "data/IBTrACS/cleaned/ibtracs_NI_clean.csv",
+    "era5_raw_dir": "data/ERA5/raw",
+    "era5_extracted_dir": "data/ERA5/extracted",
+    "insat_raw_dir": "data/INSAT-3D/raw",
+    "processed_era5_dir": "processed/era5_crops",
+    "processed_satellite_dir": "processed/satellite_crops",
+    "metadata_dir": "metadata",
+    "image_catalog": "metadata/image_catalog.csv",
+    "era5_catalog": "metadata/era5_catalog.csv",
+    "matched_samples": "metadata/matched_samples.csv",
+    "data_quality_report": "metadata/data_quality_report.csv",
+    "dataset_summary": "metadata/dataset_summary.txt",
+    "class_distribution_report": "metadata/class_distribution_report.csv",
+    "splits_dir": "splits",
+    "dataset_dir": "dataset",
+    "normalization_params": "configs/normalization_params.json"
+  },
+  "spatial": {
+    "crop_size_deg": 10.0,
+    "era5_lat_min": 0.0,
+    "era5_lat_max": 30.0,
+    "era5_lon_min": 40.0,
+    "era5_lon_max": 100.0,
+    "satellite_crop_pixels": 256
+  },
+  "temporal": {
+    "max_temporal_tolerance_minutes": 60,
+    "prefer_exact_match": true
+  },
+  "quality_control": {
+    "max_missing_pixel_percentage": 20.0,
+    "required_era5_vars": ["u10", "v10", "t2m", "msl", "sst"],
+    "min_valid_wind_speed": 0.0,
+    "max_valid_wind_speed": 250.0,
+    "min_valid_pressure": 850.0,
+    "max_valid_pressure": 1050.0
+  },
+  "splits": {
+    "train_ratio": 0.70,
+    "validation_ratio": 0.15,
+    "test_ratio": 0.15,
+    "random_seed": 42
+  },
+  "intensity_policy": {
+    "name": "IMD_WMO_North_Indian_Ocean",
+    "thresholds": [
+      {"class": "SUPER", "min_wind_kt": 120, "max_wind_kt": 999, "description": "Super Cyclonic Storm (>= 120 kt)"},
+      {"class": "EXTREME", "min_wind_kt": 90, "max_wind_kt": 119.99, "description": "Extremely Severe Cyclonic Storm (90-119 kt)"},
+      {"class": "VERY", "min_wind_kt": 64, "max_wind_kt": 89.99, "description": "Very Severe Cyclonic Storm (64-89 kt)"},
+      {"class": "SEVERE", "min_wind_kt": 48, "max_wind_kt": 63.99, "description": "Severe Cyclonic Storm (48-63 kt)"},
+      {"class": "NORMAL", "min_wind_kt": 34, "max_wind_kt": 47.99, "description": "Cyclonic Storm (34-47 kt)"},
+      {"class": "DEEP_DEPRESSION", "min_wind_kt": 28, "max_wind_kt": 33.99, "description": "Deep Depression (28-33 kt)"},
+      {"class": "DEPRESSION", "min_wind_kt": 17, "max_wind_kt": 27.99, "description": "Depression (17-27 kt)"},
+      {"class": "LOW", "min_wind_kt": 0, "max_wind_kt": 16.99, "description": "Well Marked Low / Remnant (< 17 kt)"}
+    ]
+  }
+}

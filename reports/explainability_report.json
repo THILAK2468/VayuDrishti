@@ -1,0 +1,13 @@
+{
+  "description": "Modality gating weights represent the relative weighting learned by the gating layer. They indicate multi-source attention but are not claimed as causal explanations.",
+  "mean_modality_contributions_pct": {
+    "satellite_imagery": 39.64,
+    "era5_atmospheric": 32.62,
+    "ibtracs_track_history": 27.74
+  },
+  "sample_gradcam_peak": 0.9949,
+  "visualizations": [
+    "reports/plots/gradcam_cyclone.png",
+    "reports/plots/modality_gating_weights.png"
+  ]
+}

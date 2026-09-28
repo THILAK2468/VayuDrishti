@@ -1,0 +1,21 @@
+{
+  "train_storms": [
+    "BIPARJOY",
+    "DITWAH",
+    "MOCHA",
+    "REMAL",
+    "TAUKTAE"
+  ],
+  "val_storms": [
+    "ASANI"
+  ],
+  "test_storms": [
+    "ASNA"
+  ],
+  "train_samples": 296,
+  "val_samples": 63,
+  "test_samples": 75,
+  "train_pct": 68.2,
+  "val_pct": 14.52,
+  "test_pct": 17.28
+}

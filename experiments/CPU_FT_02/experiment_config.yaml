@@ -1,0 +1,26 @@
+experiment_id: CPU_FT_02
+hardware:
+  cpu_threads: 6
+  device: CPU
+  logical_cores: 12
+  physical_cores: 6
+  processor: AMD64 Family 25 Model 68 Stepping 1, AuthenticAMD
+  ram_total_gb: 15.19
+inference_latency_ms: 123.53
+model:
+  backbone: mobilevit_xs
+  fusion: GatedMultimodalFusion
+  parameters: 5904104
+  size_mb: 22.52
+  temporal: convlstm
+training_params:
+  batch_size: 8
+  best_epoch: 5
+  early_stopping_patience: 7
+  image_size: 160
+  learning_rate: 0.0001
+  loss_type: focal
+  max_epochs: 10
+  sequence_length: 5
+  training_duration_seconds: 345.6
+  weight_decay: 0.0001

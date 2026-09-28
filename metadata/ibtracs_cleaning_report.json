@@ -1,0 +1,11 @@
+{
+  "original_row_count": 62859,
+  "removed_rows": 0,
+  "duplicate_rows": 0,
+  "invalid_timestamps": 0,
+  "invalid_coordinates": 0,
+  "missing_wind": 43245,
+  "missing_pressure": 50035,
+  "final_row_count": 62859,
+  "removal_reasons": {}
+}

@@ -1,0 +1,63 @@
+{
+  "description": "Fitted normalization statistics calculated STRICTLY on the training split.",
+  "splits_source": {
+    "train_storms": [
+      "TAUKTAE",
+      "REMAL",
+      "BIPARJOY",
+      "DITWAH",
+      "MOCHA"
+    ],
+    "train_sample_count": 296
+  },
+  "features": {
+    "u10": {
+      "mean": 2.2684,
+      "std": 3.9611,
+      "min": -30.1974,
+      "max": 31.8799
+    },
+    "v10": {
+      "mean": 1.4609,
+      "std": 3.7589,
+      "min": -31.8767,
+      "max": 31.278
+    },
+    "t2m": {
+      "mean": 301.427,
+      "std": 6.2727,
+      "min": 236.0291,
+      "max": 325.249
+    },
+    "msl": {
+      "mean": 100783.9288,
+      "std": 497.9775,
+      "min": 95581.9375,
+      "max": 105452.0
+    },
+    "sst": {
+      "mean": 302.7568,
+      "std": 1.2253,
+      "min": 292.4202,
+      "max": 308.9641
+    },
+    "wind_speed_10m": {
+      "mean": 5.1309,
+      "std": 3.2823,
+      "min": 0.0004,
+      "max": 33.0568
+    },
+    "wind_direction_10m": {
+      "mean": 0.1543,
+      "std": 1.448,
+      "min": -3.1416,
+      "max": 3.1416
+    },
+    "msl_hpa": {
+      "mean": 1007.8393,
+      "std": 4.9798,
+      "min": 955.8194,
+      "max": 1054.52
+    }
+  }
+}

@@ -1,0 +1,101 @@
+================================================================================
+                     VAYUDRISHTI DATASET SUMMARY REPORT
+================================================================================
+Project Name:        VayuDrishti
+Version:             1.0.0
+Basin:               North Indian Ocean (Arabian Sea & Bay of Bengal)
+Authoritative Track: IBTrACS v04r01 (WMO / IMD / JTWC consensus)
+Atmospheric Source:  ECMWF ERA5 Reanalysis (0.25 deg, hourly)
+Satellite Source:    INSAT-3D Imager (Supported: HDF5, NetCDF, GeoTIFF, JPG)
+--------------------------------------------------------------------------------
+
+1. EXECUTIVE SAMPLE COUNTS
+--------------------------
+Total Cyclones Tracked:       7
+Total Candidate Samples:      440
+Strictly Valid Samples:       0
+Warning Samples (Usable):     434
+Rejected / Invalid Samples:   6
+Total Usable ML Samples:      434
+
+2. CYCLONE STORM INVENTORY
+--------------------------
+Storm      Total   Usable   Invalid   Wind Range     Pres Range       Time Window
+--------------------------------------------------------------------------------
+ASANI      63      63       0         15-55 kt       982-1010 hPa     2022-05-05T12:00 to 2022-05-13T06:00
+ASNA       75      75       0         15-40 kt       990-1000 hPa     2024-08-25T00:00 to 2024-09-03T06:00
+BIPARJOY   113     113      0         20-90 kt       958-1004 hPa     2023-06-05T00:00 to 2023-06-19T00:00
+DITWAH     49      49       0         20-40 kt       1000-1005 hPa    2025-11-26T18:00 to 2025-12-02T18:00
+MOCHA      51      51       0         25-115 kt      938-1004 hPa     2023-05-08T18:00 to 2023-05-15T00:00
+REMAL      40      40       0         15-60 kt       978-1000 hPa     2024-05-23T12:00 to 2024-05-28T06:00
+TAUKTAE    49      43       6         20-100 kt      950-1007 hPa     2021-05-13T06:00 to 2021-05-19T06:00
+
+3. DATASET PARTITIONING (STORM-LEVEL LEAKAGE-FREE SPLIT)
+-------------------------------------------------------
+Partition Policy: Strictly Storm-Level (Zero storm or sample overlap)
+Target Split:     70.0% Train / 15.0% Validation / 15.0% Test
+Train Split:       296 samples ( 68.2%) | Storms: ['BIPARJOY', 'DITWAH', 'MOCHA', 'REMAL', 'TAUKTAE']
+Validation Split:   63 samples ( 14.5%) | Storms: ['ASANI']
+Test Split:         75 samples ( 17.3%) | Storms: ['ASNA']
+
+4. CLASS DISTRIBUTION & IMBALANCE ANALYSIS
+-------------------------------------------
+Intensity Class    Total    Total %    Train    Train %    Val      Test
+--------------------------------------------------------------------------------
+EXTREME            36          8.3%    36         12.2%    0        0
+VERY               70         16.1%    70         23.6%    0        0
+SEVERE             44         10.1%    25          8.4%    19       0
+NORMAL             88         20.3%    59         19.9%    11       18
+DEEP_DEPRESSION    100        23.0%    48         16.2%    12       40
+DEPRESSION         87         20.1%    55         18.6%    18       14
+LOW                9           2.1%    3           1.0%    3        3
+
+5. SPATIAL & TEMPORAL COVERAGE
+------------------------------
+Geographic Bounding Box: Latitude [5.90N to 26.30N], Longitude [60.70E to 97.80E]
+Atmospheric Domain:      Latitude [0.00N to 30.00N], Longitude [40.00E to 100.00E]
+Patch Extraction Box:    10.0 deg x 10.0 deg synoptic bounding patch
+Temporal Extent:         2021-05-14 to 2025-12-02 (covering 2021, 2022, 2023, 2024, 2025 seasons)
+Time Synchronization:    UTC Standardized (Max tolerance: 60 minutes)
+
+6. VARIABLES & FEATURES
+-----------------------
+Core ERA5 Atmospheric Variables:
+  - u10: 10m U-component of wind [m/s]
+  - v10: 10m V-component of wind [m/s]
+  - t2m: 2m temperature [K]
+  - msl: Mean sea level pressure [Pa]
+  - sst: Sea surface temperature [K]
+Engineered / Derived Atmospheric Variables:
+  - wind_speed_10m: sqrt(u10^2 + v10^2) [m/s]
+  - wind_direction_10m: atan2(v10, u10) [radians]
+  - wind_direction_10m_deg: Meteorological wind direction [0-360 degrees]
+  - msl_hpa: Mean sea level pressure converted to [hPa] (recorded conversion)
+Ground Truth Cyclone Targets:
+  - Continuous: wind_speed [kt], pressure [hPa]
+  - Categorical: intensity_class (IMD 8-tier North Indian Ocean Scale)
+
+7. NORMALIZATION METHODOLOGY (LEAKAGE PREVENTION)
+-------------------------------------------------
+Policy: Normalization statistics (Mean, Std, Min, Max) calculated STRICTLY on TRAIN.
+Fitted on Training Storms: ['TAUKTAE', 'REMAL', 'BIPARJOY', 'DITWAH', 'MOCHA']
+Features Normalized:
+  - u10                   : mean =       2.27, std =       3.96, min =     -30.20, max =      31.88
+  - v10                   : mean =       1.46, std =       3.76, min =     -31.88, max =      31.28
+  - t2m                   : mean =     301.43, std =       6.27, min =     236.03, max =     325.25
+  - msl                   : mean =  100783.93, std =     497.98, min =   95581.94, max =  105452.00
+  - sst                   : mean =     302.76, std =       1.23, min =     292.42, max =     308.96
+  - wind_speed_10m        : mean =       5.13, std =       3.28, min =       0.00, max =      33.06
+  - wind_direction_10m    : mean =       0.15, std =       1.45, min =      -3.14, max =       3.14
+  - msl_hpa               : mean =    1007.84, std =       4.98, min =     955.82, max =    1054.52
+
+8. QUALITY CONTROL & REJECTION AUDIT
+------------------------------------
+Rejected Samples (INVALID):
+  - ERA5_TEMPORAL_OUT_OF_BOUNDS; SATELLITE_DATA_ABSENT_IN_SOURCE: 6 samples
+Warning Samples (Documented Non-Fatal Notices):
+  - SATELLITE_DATA_ABSENT_IN_SOURCE: 434 samples
+
+================================================================================
+                     END OF VAYUDRISHTI DATASET REPORT
+================================================================================

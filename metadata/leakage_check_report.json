@@ -1,0 +1,34 @@
+{
+  "passed_all_checks": true,
+  "checks": {
+    "storm_leakage": {
+      "passed": true,
+      "train_storms": [
+        "TAUKTAE",
+        "REMAL",
+        "BIPARJOY",
+        "DITWAH",
+        "MOCHA"
+      ],
+      "val_storms": [
+        "ASANI"
+      ],
+      "test_storms": [
+        "ASNA"
+      ]
+    },
+    "sample_leakage": {
+      "passed": true,
+      "overlap_count": 0
+    },
+    "timestamp_cross_split_leakage": {
+      "passed": true,
+      "details": "Storms are strictly partitioned; no storm-time collision across splits."
+    },
+    "temporal_causality": {
+      "passed": true,
+      "details": "All storm observations ordered strictly chronologically."
+    }
+  },
+  "violations": []
+}

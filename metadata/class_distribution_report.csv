@@ -1,0 +1,8 @@
+intensity_class,total_count,total_percentage,train_count,train_percentage,val_count,val_percentage,test_count,test_percentage
+EXTREME,36,8.29,36,12.16,0,0.0,0,0.0
+VERY,70,16.13,70,23.65,0,0.0,0,0.0
+SEVERE,44,10.14,25,8.45,19,30.16,0,0.0
+NORMAL,88,20.28,59,19.93,11,17.46,18,24.0
+DEEP_DEPRESSION,100,23.04,48,16.22,12,19.05,40,53.33
+DEPRESSION,87,20.05,55,18.58,18,28.57,14,18.67
+LOW,9,2.07,3,1.01,3,4.76,3,4.0

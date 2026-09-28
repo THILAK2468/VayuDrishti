@@ -1,0 +1,3 @@
+experiment_id,model_name,backbone,temporal_module,modalities,fusion_type,parameters,model_size_mb,train_time_sec,inference_latency_ms,val_loss,val_accuracy,val_macro_f1,test_accuracy,test_macro_f1,test_track_1h_km,test_wind_1h_mae_kt
+Exp_F,Proposed Gated Multimodal,mobilevit_xs,convlstm,Sat+ERA5+Track,Gated,5904104,22.52,26.7,223.48,2.2074,30.51,0.2341,7.04,0.053,29.76,0.84
+Exp_H,ConvNeXt-V2-Atto Backbone,convnextv2_atto,convlstm,Sat+ERA5+Track,Gated,6957248,26.54,27.6,139.98,1.8595,30.51,0.2224,15.49,0.0778,47.76,1.42

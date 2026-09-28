@@ -1,0 +1,28 @@
+dataset_version: v1.0-synchronized
+experiment_name: exp_20260928_195647
+git_commit: None (standalone repository)
+hyperparameters:
+  batch_size: 8
+  learning_rate: 0.0001
+  loss_weights:
+    lambda_classification: 1.0
+    lambda_detection: 1.0
+    lambda_intensity: 1.0
+    lambda_track: 1.0
+  optimizer: AdamW
+  scheduler: ReduceLROnPlateau
+  sequence_length: 5
+  weight_decay: 0.0001
+model:
+  architecture: VayuDrishtiModel
+  backbone: mobilevit_xs
+  era5_dim: 128
+  fusion: GatedMultimodalFusion
+  num_lstm_layers: 1
+  sat_dim: 256
+  shared_dim: 256
+  temporal_encoder: convlstm
+  track_dim: 64
+normalization: configs/normalization_params.json
+random_seed: 42
+split_version: storm_level_70_15_15
